@@ -1,6 +1,6 @@
 package com.baseball.rascal.Service;
 
-import com.baseball.rascal.Repository.UserJpaRepo;
+import com.baseball.rascal.Repository.AccountJpaRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class CustomUserDetailService implements UserDetailsService {
+public class CustomAccountDetailService implements UserDetailsService {
 
-    private final UserJpaRepo userJpaRepo;
+    private final AccountJpaRepo accountJpaRepo;
 
     @Override
     public UserDetails loadUserByUsername(String userPk) throws UsernameNotFoundException {
-        return userJpaRepo.findByUid(userPk).orElseThrow();
+        return accountJpaRepo.findByUid(userPk).orElseThrow();
     }
 }

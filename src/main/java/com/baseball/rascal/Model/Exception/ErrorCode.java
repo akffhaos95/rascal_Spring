@@ -17,7 +17,7 @@ public enum ErrorCode {
 //    /* User Error */
 //    EMAIL_DUPLICATION("MEMBER-ERR-400", "EMAIL DUPLICATED"),
 
-    LOGIN_FAILED(-1001, "Login Failed"),
+    LOGIN_FAILED(-1001, "로그인에 실패하였습니다."),
     ;
 
     private int code;

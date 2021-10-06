@@ -1,27 +1,15 @@
 spring:
-  profiles: local-real
+  #profiles: develop
   datasource:
-    url: jdbc:mysql://localhost:3306/rascal_db
-    username: root
-    password:
+    url: postgres://xcnkbgjjekuerv:49ffc378045924547bf582c3279ac55385262f543b86f454795cdc6b6a810945@ec2-52-3-130-181.compute-1.amazonaws.com:5432/d4dj5c6k9idck9
+    username: xcnkbgjjekuerv
+    password: 49ffc378045924547bf582c3279ac55385262f543b86f454795cdc6b6a810945
   jpa:
-    hibernate:
-      ddl-auto: update # 운영시에는 validate 추천
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update # 운영시에는 validate 추천
+    generate-ddl: true
     show-sql: true
-  jwt:
-    secret: rascal!@!^
-
----
-
-spring:
-  profiles:
-    active: default
-  datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USER}
-    password: ${DATABASE_PASSWORD}
-  jpa:
-    hibernate:
-      ddl-auto: validate
   jwt:
     secret: rascal!@!^
